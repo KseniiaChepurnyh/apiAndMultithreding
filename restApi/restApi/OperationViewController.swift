@@ -24,7 +24,7 @@ class OperationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        queue.maxConcurrentOperationCount = 2
+        queue.maxConcurrentOperationCount = 1
     }
 
     @IBAction func start(_ sender: Any) {
@@ -46,53 +46,37 @@ private extension OperationViewController {
     }
 
     func task() {
-        let task1 = BlockOperation {
-            print("❌ start task 1")
-            ActivityService.shared.getActivities(activity: .init()) { [weak self] res in
-                sleep(1)
-                OperationQueue.main.addOperation { [weak self] in
-                    self?.taskView[0].backgroundColor = self?.mainBlueColor
-                }
-                print("✅ task 1 complete!")
+        let task1 = ActivityOperation(taskName: "task1")
+        let task2 = ActivityOperation(taskName: "task2")
+        let task3 = ActivityOperation(taskName: "task3")
+        let task4 = ActivityOperation(taskName: "task4")
+
+        task1.completionBlock = {
+            OperationQueue.main.addOperation { [weak self] in
+                self?.taskView[0].backgroundColor = self?.mainBlueColor
             }
         }
-        let task2 = BlockOperation {
-            print("❌ start task 2")
-            ActivityService.shared.getActivities(activity: .init()) { [weak self] res in
-                sleep(1)
-                OperationQueue.main.addOperation { [weak self] in
-                    self?.taskView[1].backgroundColor = self?.mainBlueColor
-                }
-                print("✅ task 2 complete!")
+        task2.completionBlock = {
+            OperationQueue.main.addOperation { [weak self] in
+                self?.taskView[1].backgroundColor = self?.mainBlueColor
             }
         }
-        let task3 = BlockOperation {
-            print("❌ start task 3")
-            ActivityService.shared.getActivities(activity: .init()) { [weak self] res in
-                sleep(1)
-                OperationQueue.main.addOperation { [weak self] in
-                    self?.taskView[2].backgroundColor = self?.mainBlueColor
-                }
-                print("✅ task 3 complete!")
+        task3.completionBlock = {
+            OperationQueue.main.addOperation { [weak self] in
+                self?.taskView[2].backgroundColor = self?.mainBlueColor
             }
         }
-        let task4 = BlockOperation {
-            print("❌ start task 4")
-            ActivityService.shared.getActivities(activity: .init()) { [weak self] res in
-                sleep(1)
-                OperationQueue.main.addOperation { [weak self] in
-                    self?.taskView[3].backgroundColor = self?.mainBlueColor
-                }
-                print("✅ task 4 complete!")
+        task4.completionBlock = {
+            OperationQueue.main.addOperation { [weak self] in
+                self?.taskView[3].backgroundColor = self?.mainBlueColor
             }
         }
 
-        task3.addDependency(task1)
-        task3.addDependency(task2)
+        task1.addDependency(task2)
+        task2.addDependency(task3)
         task3.addDependency(task4)
 
-        let tasks = [task3, task1, task4, task2]
-        queue.addOperations(tasks, waitUntilFinished: false)
+        queue.addOperations([task3, task1, task4, task2], waitUntilFinished: false)
     }
 
 }

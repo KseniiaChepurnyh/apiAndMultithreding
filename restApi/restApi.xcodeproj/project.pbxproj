@@ -11,6 +11,7 @@
 		B512EF3A286E00BA00B9C639 /* SemaphoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B512EF39286E00BA00B9C639 /* SemaphoreViewController.swift */; };
 		B5407265286B756200666B71 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5407264286B756200666B71 /* ActivityViewController.swift */; };
 		B55E9417287366DE00D76DD9 /* OperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E9416287366DE00D76DD9 /* OperationViewController.swift */; };
+		B55E94192875B36200D76DD9 /* ActivityOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E94182875B36200D76DD9 /* ActivityOperation.swift */; };
 		B58B9F482816C89400B75DB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B9F472816C89400B75DB6 /* AppDelegate.swift */; };
 		B58B9F4A2816C89400B75DB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B9F492816C89400B75DB6 /* SceneDelegate.swift */; };
 		B58B9F4C2816C89400B75DB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B9F4B2816C89400B75DB6 /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 		B512EF39286E00BA00B9C639 /* SemaphoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemaphoreViewController.swift; sourceTree = "<group>"; };
 		B5407264286B756200666B71 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		B55E9416287366DE00D76DD9 /* OperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationViewController.swift; sourceTree = "<group>"; };
+		B55E94182875B36200D76DD9 /* ActivityOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityOperation.swift; sourceTree = "<group>"; };
 		B58B9F442816C89400B75DB6 /* restApi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = restApi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58B9F472816C89400B75DB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B58B9F492816C89400B75DB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				B58B9F5C2816E60000B75DB6 /* ActivityRequest.swift */,
+				B55E94182875B36200D76DD9 /* ActivityOperation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			files = (
 				B58B9F6128172CE400B75DB6 /* ActivityService.swift in Sources */,
 				B58B9F4C2816C89400B75DB6 /* ViewController.swift in Sources */,
+				B55E94192875B36200D76DD9 /* ActivityOperation.swift in Sources */,
 				B58B9F482816C89400B75DB6 /* AppDelegate.swift in Sources */,
 				B512EF3A286E00BA00B9C639 /* SemaphoreViewController.swift in Sources */,
 				B5407265286B756200666B71 /* ActivityViewController.swift in Sources */,

@@ -49,4 +49,14 @@ public struct Activity: Codable {
         self.maxprice = nil
     }
 
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(activity, forKey: .activity)
+        try container.encode(type, forKey: .type)
+        try container.encode(participants, forKey: .participants)
+        try container.encode(price, forKey: .price)
+        try container.encode(minprice, forKey: .minprice)
+        try container.encode(maxprice, forKey: .maxprice)
+      }
+
 }

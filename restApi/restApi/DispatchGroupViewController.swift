@@ -55,7 +55,6 @@ private extension DispatchGroupViewController {
 
         group.enter()
         ActivityService.shared.getActivities(activity: .init()) { [weak self] res in
-            sleep(1)
             print("✅ task \(index + 1) complete!")
 
             DispatchQueue.main.async {

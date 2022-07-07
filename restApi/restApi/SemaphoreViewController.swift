@@ -21,6 +21,7 @@ class SemaphoreViewController: UIViewController {
     )
     private let queue = DispatchQueue(label: "queue", attributes: .concurrent)
     private let semaphore = DispatchSemaphore(value: 2)
+    private var activities: [Activity] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,13 +54,14 @@ private extension SemaphoreViewController {
         queue.async { [weak self] in
             self?.semaphore.wait()
             ActivityService.shared.getActivities(activity: .init()) { [weak self] res in
-                sleep(1)
                 print("✅ task \(index + 1) complete!")
 
                 DispatchQueue.main.async {
                     self?.taskView[index].backgroundColor = self?.mainBlueColor
                 }
 
+                self?.activities.append(res)
+                print("Activities count = \(self?.activities.count)")
                 self?.semaphore.signal()
             }
         }
