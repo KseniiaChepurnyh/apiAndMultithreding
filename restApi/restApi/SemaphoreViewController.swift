@@ -20,7 +20,7 @@ class SemaphoreViewController: UIViewController {
         alpha: 1
     )
     private let queue = DispatchQueue(label: "queue", attributes: .concurrent)
-    private let semaphore = DispatchSemaphore(value: 2)
+    private let semaphore = DispatchSemaphore(value: 1)
     private var activities: [Activity] = []
     
     override func viewDidLoad() {
